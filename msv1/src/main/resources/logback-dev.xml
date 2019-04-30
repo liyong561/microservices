@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+你需要日志实现哪些功能？它都能为你做到，只是需要不断的完善。
+我们需要将日志和业务开发分开，即开发人员不想一边写业务，还要一边写logger.error,
+否则就失去了意义。
+  Example LOGBACK Configuration File
+
+http://logback.qos.ch/manual/configuration.html
+
+  -->
+<configuration>
+    <!-- this class file is real important-->
+    <!--
+           普通的 logger
+           name：类名或包名，标志该 logger 与哪个包或哪个类绑定
+           level：该 logger 的日志级别
+           additivity：是否将日志信息传递给上一级
+       -->
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+              ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!--在日志中加入过滤器，非error都会过滤掉-->
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>/Users/yongli/logs/msv.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+            <fileNamePattern>tomcat _%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>/Users/yongli/logs/msv.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+        <prudent>true</prudent>
+    </appender>
+
+    <logger name="com.example.msv.controller" level="info" additivity="true">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="com.example.msv.service" level="info" additivity="true">
+        <appender-ref ref="File"/>
+    </logger>
+
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
