@@ -60,7 +60,7 @@ public class Rest {
     @GetMapping("/hello")
     public LinkedHashMap hello(HttpServletRequest request){
         try{
-        String cookieName = CookieUtils.findByName(request,"sessionId");
+        Cookie cookie = CookieUtils.findByName(request,"JSESSIONID");
         }catch (Exception e){
             return ResultFactory.erorr().put(new SimpleEntity(12,"fd"));
         }
@@ -70,6 +70,15 @@ public class Rest {
         SimpleEntity sm = new SimpleEntity(12,"fd");
         // session设计时，首先就得考虑到序列化
         return ResultFactory.ok().put(session);
+    }
+    @GetMapping("/addCookie")
+    public   void addCookie(HttpServletResponse response,HttpServletRequest request){
+         Cookie cookie = CookieUtils.findByName(request,"JSESSIONID");
+         if (cookie ==null){
+             cookie = new Cookie("JSESSIONID",UUID.randomUUID().toString());
+         }
+         // sometimes is for one,sometimes is for many
+        CookieUtils.addCookie(response,"JSESIONID",cookie.getValue());
     }
 
     @GetMapping("/airplane/object")
