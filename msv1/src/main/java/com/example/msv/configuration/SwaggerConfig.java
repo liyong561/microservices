@@ -21,7 +21,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
 @Configuration
-public class SwaggerConfig implements WebMvcConfigurer {
+public class SwaggerConfig {
     /**
      *
      * @return  切记一定要生成自己的bean3

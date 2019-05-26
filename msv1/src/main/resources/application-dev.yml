@@ -1,0 +1,4 @@
+server.port = 8888
+logging.config.classpath:logback-dev.xml
+
+spring.data.
