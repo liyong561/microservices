@@ -1,4 +1,12 @@
-server.port = 8888
-logging.config.classpath:logback-dev.xml
+server:
+  port: 8888
+logging:
+  config:
+    classpath: logback-dev.xml
 
-spring.data.
+spring:
+  datasource:
+    username: root
+    password: baibai123®
+    url: jdbc:mysql://127.0.0.1/springbootdemo
+    driver-class-name: com.mysql.cj.jdbc.Driver
