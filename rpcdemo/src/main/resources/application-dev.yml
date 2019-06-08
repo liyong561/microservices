@@ -1,0 +1,5 @@
+server:
+  port: 8090
+
+msv-url:
+  http://127.0.0.1:8888/
