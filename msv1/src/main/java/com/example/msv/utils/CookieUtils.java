@@ -45,17 +45,18 @@ public class CookieUtils {
         response.addCookie(cookie);
     }
 
-    public static String findByName(HttpServletRequest request, String name) {
+    public static Cookie findByName(HttpServletRequest request, String name) {
         /**
          * 没有找到则返回null
          */
-        String value = null;
+        Cookie cookie = null;
         Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
+        for (Cookie ck : cookies) {
             if (cookie.getName().equals(name)) {
-                value = cookie.getValue();
+                cookie = ck;
+                return cookie;
             }
         }
-        return value;
+        return cookie;
     }
 }
