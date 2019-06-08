@@ -6,9 +6,11 @@ import java.util.Date;
 
 @Data
 public class UserEntity {
+
     /**
      * 用户id，用户的唯一标识
      */
+
     private long userId;
     private String userName;
     private String mobile;

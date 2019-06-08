@@ -58,18 +58,18 @@ public class Rest {
 
     }
     @GetMapping("/hello")
-    public LinkedHashMap hello(HttpServletRequest request){
+    public ResultFactory hello(HttpServletRequest request){
         try{
         String cookieName = CookieUtils.findByName(request,"sessionId");
         }catch (Exception e){
-            return ResultFactory.erorr().put(new SimpleEntity(12,"fd"));
+            return ResultFactory.erorr().put("sessionId",e.toString());
         }
 
 
         HttpSession session = request.getSession();
         SimpleEntity sm = new SimpleEntity(12,"fd");
         // session设计时，首先就得考虑到序列化
-        return ResultFactory.ok().put(session);
+        return ResultFactory.ok();
     }
 
     @GetMapping("/airplane/object")
