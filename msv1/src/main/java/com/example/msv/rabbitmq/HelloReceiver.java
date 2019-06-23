@@ -11,15 +11,15 @@ import org.springframework.stereotype.Component;
  * the annotation is powerful,it done many things for programmer
  * the queues value is very important,
  */
-@Component
-@RabbitListener(queues = "hello.queue1")
+/**
 public class HelloReceiver {
     Logger logger = LoggerFactory.getLogger(HelloReceiver.class);
 
     @RabbitHandler
-    public void process(Object obj){
+    public void process(Object obj) {
         logger.info("I have receive the message");
         logger.info(obj.toString());
 
     }
 }
+*/

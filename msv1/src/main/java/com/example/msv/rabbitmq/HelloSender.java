@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * the service for my app
  */
+/**
 @Component
 public class HelloSender {
     // the bean ,the context for me
@@ -19,3 +20,4 @@ public class HelloSender {
     }
 }
 
+*/

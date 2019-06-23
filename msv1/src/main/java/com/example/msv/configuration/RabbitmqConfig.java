@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * create the queue and other confug
  */
+/**
 @Configuration
 public class RabbitmqConfig {
     @Bean
@@ -36,3 +37,4 @@ public class RabbitmqConfig {
     }
 
 }
+*/
