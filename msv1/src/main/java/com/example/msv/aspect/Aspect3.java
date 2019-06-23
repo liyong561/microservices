@@ -10,9 +10,9 @@ import java.util.Arrays;
 @Component
 public class Aspect3 {
 
-    @Before("execution (* com.example.msv.controller.Rest.*(..))")
+    @Before("execution (* com.example.msv.controller.Rest.airplaneObject(..))")
     public void beforeMethod(JoinPoint joinPoint) {
-        // 可以看到，连接点基本是一个方法，这样可以获得方法的信息。
+        // 可以看到，连接点基本是一个方法，这样可以获得方法的信息,实际中使用到更多是切到一个方法。
         String methodName = joinPoint.getSignature().getName();
 
     }
