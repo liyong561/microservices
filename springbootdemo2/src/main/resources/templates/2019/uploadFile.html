@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload a file</title>
+</head>
+<body>
+<!--上传文件，也就是大的字节流，需要前后端的配合，在前端就是entype的设置-->
+<form method="post" enctype="multipart/form-data">
+    <label for="f1">上传文件</label>
+    <!--controller通过name来定位-->
+    <input id="f1" name="f1" type="file">
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

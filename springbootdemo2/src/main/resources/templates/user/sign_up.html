@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Good Thymes Virtual Grocery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="container text-center">
+    <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2 class="text-center">欢迎注册</h2>
+                <a  href="sign_in">已有账号，点击登录</a>
+            </div>
+        <div class="panel-body">
+            <!--action的路径不要弄错 /是对路径-->
+            <form action="sign_up" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder;.;l="请输入姓名" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pwd">
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <!--label标签中的for和其他标签的id对于，可以执行它的动作-->
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <!--button的这个标签非常的简单，一切都是primary-->
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <!-- 更多注册方式 -->
+            <div class="more-sign">
+                <h6>社交帐号直接注册</h6>
+            </div>
+        </div>
+
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" media="all"
+      href="../bootstrap/css/bootstrap.css" />
+<script src="../jquery-3.3.1.min.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>

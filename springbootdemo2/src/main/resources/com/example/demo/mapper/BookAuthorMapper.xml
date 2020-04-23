@@ -1,0 +1,38 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.BookAuthorMapper">
+    <!-- 这里应该有field to  -->
+    <resultMap id="book_author_result" type="com.example.demo.model.BookAuthor">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="country" column="country"/>
+        <result property="job" column="job"/>
+        <result property="intro" column="intro"/>
+        <result property="otherBooks" column="other_book"/>
+    </resultMap>
+    <!-- resultMap一般在返回值时才用，paramType应该不需要指定-->
+    <insert id="add">
+        insert into book_author(name,age,country,job,intro,other_book)
+        values (#{name},#{age},#{country},#{job},#{intro},#{otherBooks})
+    </insert>
+    <!--这应该和接口的函数一一对应，那么这个参数能不能智能地匹配到呢？-->
+    <delete id="delete">
+        delete from book_author where name =#{name}
+    </delete>
+    <!--在这里，只偶有id没有更新-->
+    <update id="update">
+        update book_author set name=#{name},age=#{age},country=#{country},job=#{job},intro=#{intro},
+        other_book = #{otherBook} where name =#{name}
+    </update>
+    <select id="selectByName" resultMap="book_author_result">
+        select * from book_author where name =#{name}
+    </select>
+    <select id="selectByCountry" resultMap="book_author_result">
+        select * from book_author where country =#{country}
+    </select>
+    <select id="selectByCountryAndJob">
+        select # from book_author where country =#{country} and job=#{job}
+    </select>
+</mapper>

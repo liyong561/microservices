@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.chengduservice.mapper.NewsDAO">
+
+    <!--字段增加多了，你就犯了很多错误-->
+    <sql id="newsColumns">
+        news_id,type,sub_type,zone,is_healthy,news_status,release_date,
+        title,news_abstract,content_url,pic_urls,author,labels,view_count,comment_count,
+        item1,item2,item3,item4,item5,item6,item7
+    </sql>
+
+
+    <!--虽然有驼峰自动转换，但是这个去字段还是不一致,使用这个替换还是有问题的-->
+    <sql id="newsFields">
+        ${alias}.newsId,${alias}.type,${alias}.subType,${alias}.zone,${alias}.isHealthy,${alias}.newsStatus,
+        ${alias}.releaseDate, ${alias}.title,${alias}.newsAbstract,${alias}.contentUrl,${alias}.picUrls,
+        ${alias}.author,${alias}.labels,${alias}.viewCount,${alias}.commentCount,
+        ${alias}.item1,${alias}.item2,${alias}.item3,${alias}.item4,${alias}.item5,${alias}.item6,${alias}.item7
+    </sql>
+
+
+    <insert id="batchInsertNews" parameterType="com.example.chengduservice.entity.News">
+        insert into news(<include refid="newsColumns"/>)
+        values
+        <foreach collection="list" separator="," item="item">
+            <!-- $完全替换还是有问题的-->
+            (
+            #{item.newsId},#{item.type},#{item.subType},#{item.zone},#{item.isHealthy},#{item.newsStatus},#{item.releaseDate},
+            #{item.title},#{item.newsAbstract},#{item.contentUrl},#{item.picUrls},#{item.author},#{item.labels},#{item.viewCount},#{item.commentCount},
+            #{item.item1},#{item.item2},#{item.item3},#{item.item4},#{item.item5},#{item.item6},#{item.item7}
+            )
+        </foreach>
+    </insert>
+
+    <select id="selectByKeyWord" parameterType="string">
+        select * from news where news_abstract like %#{keyWord}%
+    </select>
+
+    <insert id="insertOneNews" parameterType="com.example.chengduservice.entity.News">
+        insert into news(<include refid="newsColumns"/>)
+        values
+            (#{newsId},#{type},#{subType},#{zone},#{isHealthy},#{newsStatus},#{releaseDate},
+        #{title},#{newsAbstract},#{contentUrl},#{picUrls},#{author},#{labels},#{viewCount},#{commentCount},
+        #{item1},#{item2},#{item3},#{item4},#{item5},#{item6},#{item7}
+            )
+    </insert>
+
+<!-- 如果没有resultType，真的不知道到查出的结果该怎么办-->
+    <select id="batchSelect" resultType="com.example.chengduservice.entity.News">
+        select * from news where news_abstract =#{keyWord} and
+        item1 = #{item1}
+    </select>
+
+</mapper>

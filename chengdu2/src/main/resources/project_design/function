@@ -1,0 +1,22 @@
+10/26
+做一个本地服务的网站，新闻网站太简单了，但是本地服务网站就太大了，先只做几个方面。
+具体锁定为1外卖2住宿3出行4旅游，然后可细分。
+  <mappers>
+      -mybatis-config.xml扫描文件, 没有classpath
+        <mapper resource="mapper/*.xml"></mapper>
+        <package name="com.example.chengduservice.mapper"></package>
+    </mappers>
+   ->
+    <!-
+    在properties中配置了，在这里不需要了
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>

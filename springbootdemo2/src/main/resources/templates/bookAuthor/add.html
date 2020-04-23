@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/bootstrap.css.bootstrap.css"/>
+    <script src="/scripts/jquery-3.3.1.min.js"></script>
+    <!-- 突然感觉jQuery好陌生了，之前还学过一段时间的-->
+</head>
+<!--表单在web应用中也很普遍，并且网上问卷调查普遍应用，是server和client之间数据交户的重要方式-->
+<body>
+<!--action也可以省略，就是原来的路径-->
+<form action="/bookAuthor/add" method="post">
+    <!--name属性在后台解析时标识各个属性值-->
+    姓名：<input type="text" name ="name"><br>
+    年龄：<input type="text" name ="age"><br>
+    职业：<input type="text" name="job"><br>
+    国籍：<input type="text" name="country"><br>
+    简介：<input type="text" name="intro"><br>
+    其他书籍（以逗号分隔开):<input type="text" name="otherBooks">
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

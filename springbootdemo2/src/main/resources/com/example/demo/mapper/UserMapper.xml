@@ -1,0 +1,36 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UserMapper">
+    <resultMap id="user_result" type="com.example.demo.model.User">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="pwd" column="pwd"/>
+        <result property="phoneNumber" column="phone_number"/>
+        <result property="age" column="age"/>
+        <result property="gender" column="gender"/>
+        <result property="birth" column="birth"/>
+        <result property="email" column="email"/>
+        <result property="place" column="place"/>
+    </resultMap>
+    <insert id="add">
+        insert into user(name,pwd,phone_number,age,gender,birth,email,place) values
+        (#{name},#{pwd},#{phoneNumber},#{age},#{gender},#{birth},#{email},#{place})
+    </insert>
+    <delete id="delete">
+        delete from user where id =#{id}
+    </delete>
+    <update id="update">
+        update user set name=#{name},pwd=#{pwd},phoneNumber =#{phoneNumber},age=#{age},gender=#{gender},
+        birt=#{birth},email=#{email},place=#{place} where id =#{id}
+    </update>
+    <select id="selectById" resultMap="user_result">
+        select * from user where id =#{id}
+    </select>
+    <select id="selectByName" resultMap="user_result">
+        select * from user where name=#{name}
+    </select>
+    <select id="selectLikeName" resultMap="user_result">
+        select * from user where name like '%${name}%'
+    </select>
+</mapper>

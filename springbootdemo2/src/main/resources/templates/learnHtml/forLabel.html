@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user label </title>
+</head>
+<body>
+<!-- 这个radio 控件正是需要label的地方，label总是和另一个组件相关连-，至于form中的数据怎么交互，又是另外的一种方式了-->
+<!--用户提交的数据都会封装在request中，具体就是怎么解析request中的参数，这篇博文可以http://www.cnblogs.com/ldcsaa/archive/2012/02/16/2353030.html#-->
+<form>
+    <label for="male" >MALE</label>
+    <input type="radio" id="male" name="sex"/><br>
+    <label for="female" >Female</label>
+    <input type="radio" id="female" name="sex"/>
+</form>
+<label for="male" >在这里，也可以选择male</label>
+</body>
+</html>

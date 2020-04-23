@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <script src="/scripts/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<h2>访问model中的值</h2>
+<!--提示can't resolve title,why?关掉thymeleaf的检查-->
+<p th:text="${book1.title}"></p>
+<script>
+    <!--嵌入的js代码-->
+   alert('this is html page');
+</script>
+<p id="p1"></p>
+<!--http://localhost:8080/pic/flower.jpg,这是图片的地址，看得出来编译后，没有resource文件，且../就是项目的路径-->
+<img src="../pic/flower.jpg"/>
+</body>
+</html>

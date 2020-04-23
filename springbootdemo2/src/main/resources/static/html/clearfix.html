@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这里的html文件主要学习布局，不用经过control，直接访问</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div class="bg-info clearfix">
+    <!--big给这个div定了颜色--->
+    <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
+    <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
+</div>
+<h1>原生的h1</h1>
+<h1 class="p-2">
+    py-2
+</h1>
+<h2 class="p-2">
+    h2--p2-2
+</h2>
+<script src="../jquery-3.3.1.min.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+<!--
+.py-2 {
+  padding-top: 0.5rem !important;
+}bootstrap中源码有这么一句话，能不能看懂，它描述了一个什么样的布局？不太懂就去看看css语法。
+rem这个单位很奇怪，是相对于其root节点的大小,所以用起来很宁活。-->
+</body>
+</html>

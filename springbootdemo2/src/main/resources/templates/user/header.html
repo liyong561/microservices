@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<!--一个网站通用的头网页,网页头部浮动在顶端，向左右两边对其。把模块粘过来，然后根据自己修改-->
+<head>
+    <title>Good Thymes Virtual Grocery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../bootstrap/css/bootstrap.css" />
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+<!--看这个fixed-top的作用-->
+<div th:fragment="header_copy">
+<nav  class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">菜鸟教程</a>
+            <a href="#">下载app</a>
+        </div>
+        <div th:if="${session.user_name}==null">
+            <ul class="nav navbar-nav navbar-right list-inline">
+                <li><a href="sign_up"><span ></span> 注册</a></li>
+                <li><a href="sign_in"><span></span> 登录</a></li>
+            </ul>
+        </div>
+        <div th:if="${session.user_name}!=null">
+            <a th:href="@{user_info(user_name=${session.user_name})}">
+                欢迎<span th:text="${session.user_name}"></span>！
+            </a>
+        </div>
+    </div>
+</nav>
+</div>
+</body>
+
+</html>

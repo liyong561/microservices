@@ -1,0 +1,7 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--相当于格式头文件，然后mapper是根节点，这是mapper文件的最基本格式-->
+<mapper namespace="com.example.chengduservice.mapper.CommentDAO">
+
+</mapper>

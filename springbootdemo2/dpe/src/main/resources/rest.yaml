@@ -1,0 +1,160 @@
+openapi: 3.0.0
+info:
+  title: xxxxAPI文档
+  description: xxxx功能模块及接口设计文档
+  version: '0.1'
+  termsOfService: 'http://swagger.io/terms/'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: 'http://xxxx.xmkp/v1'
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: https
+    description: Main (production) server
+  - url: 'dev.xxxx.com:8080/api/v1'
+    description: Development server
+  - url: 'http://test.xxxx.xmkp/v1'
+    description: Test server
+tags:
+  - name: Courses
+    description: 专辑课程管理
+paths:
+  /courses:
+    post:
+      tags:
+        - Courses
+      summary: 创建专辑课程
+      description: 需要在主站创建专辑，此时状态为【编辑中】
+      operationId: createCourse
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCourseRequest'
+      responses:
+        '200':
+          description: 操作成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateCourseRequest'
+        '404':
+          description: 服务未找到
+          content:
+            application/json:
+              schema:
+                type: string
+                default: 服务未找到
+
+
+components:
+  # schema下面的对象
+  schemas:
+    CreateCourseRequest:
+      description: 创建课程时请求对象
+      type: object
+      properties:
+        status:
+          enum:
+            - underReview
+            - published
+            - inactive
+            - editing
+            - rejected
+            - removed
+          description: '课程状态[审核中，已发布，已下架，编辑中，未通过，被下架]'
+        price:
+          type: number
+          format: 浮动
+        title:
+          type: string
+        cover:
+          type: string
+        presenterRef:
+          type: integer
+          format: int64
+        shortDesc:
+          type: string
+        albumRef:
+          type: integer
+          format: int64
+          description: 主站专辑id引用
+        homepageRef:
+          type: integer
+          format: int64
+          description: 个人主页id引用
+        poster:
+          type: string
+          description: 海报
+
+    CourseDto:
+      description: 展示详情时课程对象
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        status:
+          enum:
+            - underReview
+            - published
+            - inactive
+            - editing
+            - rejected
+            - removed
+          description: '课程状态[审核中，已发布，已下架，编辑中，未通过，被下架]'
+        price:
+          type: number
+          format: 浮动
+        title:
+          type: string
+        cover:
+          type: string
+        presenterRef:
+          type: integer
+          format: int64
+        shortDesc:
+          type: string
+        albumRef:
+          type: integer
+          format: int64
+          description: 主站专辑id引用
+        homepageRef:
+          type: integer
+          format: int64
+          description: 个人主页id引用
+        poster:
+          type: string
+          description: 海报
+        createdTime:
+          type: string
+          format: date
+    CourseListDto:
+      description: 课程列表中课程对象
+      type: object
+      properties:
+        status:
+          enum:
+            - underReview
+            - published
+            - inactive
+            - editing
+            - rejected
+            - removed
+          description: '课程状态[审核中，已发布，已下架，编辑中，未通过，被下架]'
+        price:
+          type: number
+          format: 浮动
+        title:
+          type: string
+        cover:
+          type: string
+        poster:
+          type: string
+          description: 海报

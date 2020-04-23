@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.chengduservice.mapper.UserDAO">
+
+    <resultMap id="userMap" type="com.example.chengduservice.entity.User">
+        <!--该行是干什么的？-->
+        <id column="user_id" property="userId"></id>
+        <result column="phone_number" property="phoneNumber"></result>
+        <result column="registry_date" property="registryDate"></result>
+
+    </resultMap>
+
+    <!--
+    指定 resultType 返回值类型时 String 类型的，
+    string 在这里是一个别名，代表的是 java.lang.String
+
+    对于引用数据类型，都是将大写字母转小写，比如 HashMap 对应的别名是 'hashmap'
+    基本数据类型考虑到重复的问题，会在其前面加上 '_'，比如 byte 对应的别名是 '_byte'
+    应该就像ResultMap一样
+    -->
+
+    <!--mybatis还有一个功能，就是将表封装为对象的功能-->
+    <select id="selectUserById" resultMap="userMap">
+        <!-- 相同的字段会默认填充牛逼-->
+        select * from user where user_id = #{id}
+    </select>
+
+    <select id="selectUsers" resultMap="userMap">
+        select * from user limit #{from}, #{limit}
+    </select>
+
+    <select id="selectCount" resultType="Integer">
+        select count(*) from user
+    </select>
+
+    <insert id="insert" parameterType="com.example.chengduservice.entity.User">
+        <!--是传入一个字段，不是传入一个值-->
+        insert into user(user_id,pwd,name,role,age,gender,phone_number,registry_date)
+        values(#{userId},#{pwd},#{name}, #{role},#{age},#{gender},
+        #{phoneNumber}, #{registryDate})
+    </insert>
+
+    <insert id="batchInsert" parameterType="com.example.chengduservice.entity.User">
+        insert into user(user_id,pwd,name,role,age,gender,phone_number,registry_date)
+        values
+
+        <!-- 这个foreach是有错的
+        <foreach collection="users" item="user" open="(" close=")" separator=",">
+            #{user.userId},#{user.pwd},#{user.role}, #{user.role},#{user.age},#{user.gender},
+            #{user.phoneumber}, #{user.registryDate}
+        </foreach>
+        -->
+
+        <foreach collection="list" item="user" separator=",">
+           (#{user.userId},#{user.pwd},#{user.role}, #{user.role},#{user.age},
+            #{user.gender}, #{user.phoneumber}, #{user.registryDate})
+        </foreach>
+    </insert>
+
+</mapper>

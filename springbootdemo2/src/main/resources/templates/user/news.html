@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Good Thymes Virtual Grocery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../bootstrap/css/bootstrap.css" />
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+
+</head>
+
+<body>
+<div th:include="user/header :: header_copy">
+
+</div>
+<!--th后面的是thymeleaf的标签，其展示字符串常量的方式比较特殊。-->
+<p th:text="'this is from thymeleaf'">this is for for each
+<div>
+    <ul class="list-group">
+        <!--列表中的迭代-->
+        <li class="list-group-item" th:each="color:${colors}">
+            <span>颜色</span>
+            <span th:text="${color}"></span>
+        </li>
+    </ul>
+</div>
+<div>
+    <ul class="list-group">
+        <!--列表中的迭代-->
+        <li class="list-group-item" th:each="entry,iterState:${map}">
+            <span th:text="${entry['key']}"></span>
+            <span th:text="${entry['value']}"></span>
+            <span>后面是迭代信息</span>
+            <span th:text="${iterState}"></span>
+        </li>
+    </ul>
+</div>
+</body>
+
+</html>

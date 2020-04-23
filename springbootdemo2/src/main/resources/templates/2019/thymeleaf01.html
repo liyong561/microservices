@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--这是本项目中第一个使用thymeleaf模板引擎解析的文件，
+使用thymeleaf语法，要配置相应的ViewResolver,比如jsp是InternalResourceViewResolver,thymeleaf是ThymeleafViewResolver
+视图解析器应该告诉spring用什么对象来解析视图文件。
+看一下org.springframework.boot.autoconfigure.thymeleaf中有自动配置。
+重点:thymeleaf是在后台就解析了，model中的数据并没有在网络中传输，
+而js的数据这是通过http的2网上获取的。
+--->
+<head>
+    <title>Title</title>
+    <script src="../jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<h2>访问model中的值</h2>
+<!--提示can't resolve title,why?关掉thymeleaf的检查-->
+<p th:text="${book1.title}"></p>
+
+<p id="p1">p1是原来的值</p><br>
+<p id="p2">p2原来的值</p>
+<button type="button" id="button1">改变上面的</button>
+<!--id为全局属性，也就是每个标签都会有的-->
+<!--http://localhost:8080/pic/flower.jpg,这是图片的地址，看得出来编译后，没有resource文件，且../就是项目的路径-->
+<img src="../pic/flower.jpg"/>
+<script>
+   alert('this is html page');
+        $("#button1").click(function(){
+            $("#p1").text("这是button被点击后的值");
+            $("#p2").append("对p2的补充内容，可以用在table的标签上");
+            var var1 = document.createElement("p");
+            var1.innerHTML = "document 插入新的元素";
+            var var2 = $("<div></div>").text("jQuery 增加新的标签，并填入内容");
+            $("#p1").after(var1,var2);  // 完善信息的过程，调用这个函数，没有什么复杂逻辑
+        });
+</script>
+</body>
+</html>

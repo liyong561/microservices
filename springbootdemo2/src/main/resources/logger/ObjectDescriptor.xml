@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--习惯用xml文件来描述一个对象，而class文件就是它的模板。在我自己写用此文件来从创建对象，也比较舒适-->
+<filter1>
+    <filter1-name>filter1</filter1-name>
+    <filter1-class>com.example.demo.filter</filter1-class>
+    <init-param>
+        <param-name>frequency</param-name>
+        <param-value>1901</param-value>
+    </init-param>
+    <init-param>
+        <param-name>resolution</param-name>
+        <param-value>1024</param-value>
+    </init-param>
+</filter1>

@@ -1,0 +1,4 @@
+10/25
+该文件主要记录coding过程中的问题及思考。自己可以看一下idea下project的工程目录，及各个目录的作用。
+src主要是工程的代码区域，其他是配置文件，Exeternal Libraries是第三方库文件。可以打开看一下，
+有很多熟悉的package，这是支撑应用的第三方库。json，netty,mysql-connector等。

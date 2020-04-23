@@ -1,0 +1,6 @@
+1.现在会看最初的Springmvc框架，最重要的类应该是org.springframework.web.DispatcherServlet.
+2.Spring mvc 项目中一个重要的配置文件就是web.xml,其又可以引入其他的配置文件。/WEB-INF/config/simple-config.xml
+3.使用spring boot，几乎不用配置文件，用注解，也告别了jsp，取而代之是html，更加纯粹了。但是现在还有一个问题，就是向html页面传值
+比较方便了。
+4.在spring的注解使用过程中，<context:component-scan base-package="com.exmaple.demo.controller"/>有一个spring的扫描过程，在
+spring boot中也不需要程序员制定了。但是这是什么原理呢？

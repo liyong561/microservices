@@ -1,0 +1,10 @@
+# yml相比于xml和properties还是很少清晰的
+# 现在从简单的logger文件配置开始
+logging:
+  path: /Users/yongli/logs/
+  pattern:
+    file: logs_%d{yyyy-MM-dd}.log
+
+  level:
+    root: ERROR
+
