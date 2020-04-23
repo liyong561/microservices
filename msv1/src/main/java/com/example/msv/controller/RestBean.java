@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.Date;
+//ctrl+/
 
 /**
- * create by yongli on 2019-06-07 18:56
+ * create by yongli on 2019-06-07 18:56，just
+ *  for quick tab
  */
 @RestController
 @RequestMapping("/bean")
@@ -27,7 +29,7 @@ public class RestBean {
     @ApiOperation(value = "for a id and name",notes = "just a test")
     // 加了requestBody和没加的区别
     public SimpleEntity getSimpleEntity(@RequestBody SimpleEntity user){
-        // a microphone
+        // a microphone,a
      return user;
     }
 

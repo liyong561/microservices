@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>ribnon-client</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ribbon_client</name>
 	<description>Demo project for Spring Boot</description>

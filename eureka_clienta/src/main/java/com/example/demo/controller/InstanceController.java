@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class InstanceController {
+
+    // 直接生成一个EurekaClient吗？
     @Autowired
     EurekaClient eurekaClient;
     @RequestMapping("/info")

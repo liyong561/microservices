@@ -1,0 +1,17 @@
+server:
+  port: 9004
+spring:
+  profiles:
+    active:
+      - native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+          - file:///Users/yongli/test/iam
+            # http://127.0.0.1:9004/iam/dev ，可以这样访问，client使用是差不多也是这样使用的、
+
+            #uri: https://github.com/liyong561/algorithm/
+            # 搜寻路径，可能根据文件名来搜索，也可能是其他的匹配方法，当然也可以使用本地文件系统，就是换了一个路径名，使用native
+          #searchPaths: config-file

@@ -1,12 +1,15 @@
 server:
   port: 9005
-spring:
-  application:
-    name: myservice
-  cloud:
-    config:
-      label: master
-      uri: http://localhost:9004/
-        # 搜寻路径，可能根据文件名来搜索，也可能是其他的匹配方法，当然也可以使用本地文件系统，自动会去哪里找
-        # 也可以在配置中心中查找该服务，需要通过serviceId找到它，
-      profile: dev
+
+eureka:
+  instance:
+    prefer-ip-address: true
+
+  client:
+    # 天啊，是ture字符went
+    register-with-eureka: true # 为什么idea能够自动识别这些前缀？
+    fetch-registry: true # 拉取注册表的本地副本
+
+    service-url:
+      # add
+      defaultZone: http://127.0.0.1:8761/eureka/
