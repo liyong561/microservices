@@ -1,0 +1,4 @@
+zookeeper是java写的，在使用上，可以直接使用其提供的api，应该是非常方便的
+
+# zookeeper中核心是什么呢？是一个树形的存储器。你看到了，redis，zookeeper在这里都成为了一种容器。
+而不是我们常见的计算引擎，比如hadoop。

@@ -5,20 +5,22 @@ import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.RetryNTimes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
- *
+ * 参考博文在哪里？绝对不是我自己写的？
+ * zookeeper和spring cloud config 有些关系，可以管理配置文件。
  */
 @RestController
 @RequestMapping("/zoo")
 public class ZooController {
+
+
     /**
      * Zookeeper info
      * the reference blog: http://www.cnblogs.com/seaspring/p/5536338.html
      * 和已有的服务进行通信，对接
+     * zookeeper启动为甚会占用8080
      */
     private static final String ZK_ADDRESS = "127.0.0.1:2181";
     private static final String ZK_PATH = "/zk";
@@ -28,8 +30,9 @@ public class ZooController {
 
     static CuratorFramework client = CuratorFrameworkFactory.newClient(
             ZK_ADDRESS,
-            new RetryNTimes(10, 5000)
+            new RetryNTimes(3, 5000)
     );
+
     static {
         // in static block
         client.start();
@@ -37,7 +40,7 @@ public class ZooController {
     }
 
 
-    @RequestMapping("/add")
+    @PostMapping("/add")
     public String addMessage(@RequestParam("msg") String msg) {
         // 2.Client API test
         // 2.1 Create node
@@ -52,18 +55,18 @@ public class ZooController {
         return "OK";
     }
 
-        @RequestMapping("/get")
-        public String getMessage() {
-            Object data = null;
-            try {
-                logger.info(client.getChildren().forPath("/").toString());
-                data = client.getData().forPath(ZK_PATH);
+    @GetMapping("/get")
+    public String getMessage() {
+        Object data = null;
+        try {
+            logger.info(client.getChildren().forPath("/").toString());
+            data = client.getData().forPath(ZK_PATH);
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return data.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return data.toString();
+    }
         /*
         // 2.2 Get node and data
         print("ls", "/");

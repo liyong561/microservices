@@ -1,3 +1,10 @@
 server:
   port: 8089
 
+dubbo:
+  applicaiton:
+    name: dp
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol: dubbo
+  port: 20880

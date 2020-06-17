@@ -35,8 +35,8 @@
             )
         </foreach>
     </insert>
-
-    <select id="selectByKeyWord" parameterType="string">
+<!-- resultType或者resultMap还是要有的，不然就不知道怎么映射了-->
+    <select id="selectByKeyWord" parameterType="string" resultType="com.example.chengduservice.entity.News">
         select * from news where news_abstract like %#{keyWord}%
     </select>
 

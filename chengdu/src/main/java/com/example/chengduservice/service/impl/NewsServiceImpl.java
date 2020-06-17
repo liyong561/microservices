@@ -35,7 +35,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public List<News> batchSelect(Map<String, Object> map) {
+    public List<News> batchSelect(Map<String, String> map) {
         return newsDAO.batchSelect(map);
     }
 }

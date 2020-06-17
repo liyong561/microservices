@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.service.RestService;
+import com.example.demo.redis.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

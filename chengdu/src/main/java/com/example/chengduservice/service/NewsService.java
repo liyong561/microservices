@@ -17,5 +17,5 @@ public interface NewsService {
 
     List<News> selectByKeyWord(String keyWord);
 
-    List<News> batchSelect(Map<String,Object> map);
+    List<News> batchSelect(Map<String,String> map);
 }

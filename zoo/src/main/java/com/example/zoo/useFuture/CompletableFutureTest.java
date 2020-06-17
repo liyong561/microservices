@@ -15,7 +15,7 @@ import java.util.function.BiConsumer;
 
 public class CompletableFutureTest {
 
-    public static void main(String[] args) throws Exception{
+    public static void main2(String[] args) throws Exception{
 
         runAsync();
         supplyAsync();

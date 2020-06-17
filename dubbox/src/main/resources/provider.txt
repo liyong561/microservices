@@ -1,0 +1,13 @@
+ Failed to check the status of the service com.example.demo.common2.GreetingService.
+  No provider available for the service com.example.demo.common2.GreetingService from
+  the url zookeeper://127.0.0.1:2181/com.alibaba.dubbo.registry.RegistryService?application=annotation-consumer&default
+  .timeout=3000&dubbo=2.6.2&interface=com.example.demo.common2.GreetingService&methods=sayHello&pid=1602&register.ip=
+  172.20.10.3&side=consumer&timestamp=1592142626492 to the consumer 172.20.10.3 use dubbo
+
+
+
+# 总结一下，就是请求的接口的报名，类名一样，而不必是在一个路由器中的。
+
+# 要看一下Zookeeper中发生了什么.
+
+# zookeeper中存储了很多服务路由的东西

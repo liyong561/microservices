@@ -19,5 +19,5 @@ public interface NewsDAO {
 
     // map就是真的又封装了一个map，那样的引用是有问题的。
     // List<News> batchSelect(@Param("map") Map<String, Object> map);
-    List<News> batchSelect(Map<String, Object> map);
+    List<News> batchSelect(Map<String, String> map);
 }

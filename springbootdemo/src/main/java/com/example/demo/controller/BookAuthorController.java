@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.BookAuthor;
-import com.example.demo.service.BookAuthorService;
+import com.example.demo.redis.BookAuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

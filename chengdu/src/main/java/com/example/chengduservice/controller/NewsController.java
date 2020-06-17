@@ -40,6 +40,16 @@ public class NewsController {
         return CommonResult.success(newsService.selectByKeyWord(keyWord));
     }
 
+    @GetMapping("/queryByCondition")
+    @ApiOperation("keyWord,item1 查询操作")
+    public CommonResult queryByCondition(@RequestParam("keyWord") String keyWord,
+                                         @RequestParam("item1") String item1) {
+        Map<String,String> map = new HashMap<>();
+        map.put("keyWord",keyWord);
+        map.put("item1",item1);
+        return CommonResult.success(newsService.batchSelect(map));
+    }
+
     @PostMapping("/insertOne")
     @ApiOperation("批量插入新闻")
     public CommonResult batchInsertNews(@RequestBody News news) {
@@ -49,7 +59,7 @@ public class NewsController {
     @GetMapping("/queryTest")
     @ApiOperation("测试map的查询操作")
     public CommonResult batchSelectQuery(){
-        Map<String,Object> map = new HashMap<>();
+        Map<String,String> map = new HashMap<>();
         map.put("keyWord","abstract");
         map.put("item1","dsdzfs");
         return CommonResult.success(newsService.batchSelect(map));

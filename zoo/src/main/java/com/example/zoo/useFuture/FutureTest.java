@@ -18,7 +18,7 @@ import java.util.concurrent.FutureTask;
 
 public class FutureTest {
 
-    public static void main(String[] args) throws Exception {
+    public static void main2(String[] args) throws Exception {
         // 为甚么这个不可以省？
         Callable<Tigger> callabe2 = new Callable<Tigger>() {
             @Override

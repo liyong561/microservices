@@ -1,0 +1,6 @@
+Export dubbo service com.example.demo.common.GreetingService to url
+ dubbo://172.20.10.3:20880/com.example.demo.common.GreetingService?
+ anyhost=true&application=annotation-provider&bind.ip=172.20.10.3&
+ bind.port=20880&dubbo=2.6.2&generic=false&interface=com.example.demo.common.
+ GreetingService&methods=sayHello&pid=1520&side=provider&timestamp=1592141452409,
+ dubbo version: 2.6.2, current host: 172.20.10.3
